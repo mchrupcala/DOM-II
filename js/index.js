@@ -69,3 +69,26 @@ const go = document.querySelector('.inverse-content .text-content h2');
 go.addEventListener('dblclick', (event) => {
     event.target.setAttribute('class', 'lightSpeedOut animated')
 })
+
+//Turn the footer orange on click.
+const footer = document.querySelector('footer');
+footer.addEventListener('click', (e) => {
+    event.target.style.background = 'orange';
+})
+
+//On mouseover
+const waterPic = document.querySelector('.img-fluid');
+
+waterPic.addEventListener('mouseover', (e) => {
+    event.target.style.filter = 'sepia(100%)';
+})
+
+
+//Remove any of the bottom headers or paragraphs or buttons with a click.
+const dest = document.querySelectorAll('.destination');
+
+dest.forEach((attrs) => {
+    attrs.addEventListener('click', (e) => {
+        event.target.style.display = 'none';
+    })
+})
