@@ -30,6 +30,10 @@ navLink.forEach((attrs) => {
         var random_color = colors[Math.floor(Math.random() * colors.length)];
         attrs.style.color = random_color;
     });
+    //Prevent the nav bar from firing (added wikipedia.org as Home destination to test.)
+    attrs.addEventListener('click', (e) => {
+        event.preventDefault();
+    })
 })
 
 
@@ -85,10 +89,13 @@ waterPic.addEventListener('mouseover', (e) => {
 
 
 //Remove any of the bottom headers or paragraphs or buttons with a click.
-const dest = document.querySelectorAll('.destination');
+const dest = document.querySelectorAll('.destination p');
 
 dest.forEach((attrs) => {
     attrs.addEventListener('click', (e) => {
         event.target.style.display = 'none';
+        // event.stopPropogation();
     })
 })
+
+//^^this is weird because I'd expect the 'p' element to propogate up to the .destination div. But it's not...so then I added a div element around the last Island Getaway box...thinking that the new 'p' element would propogate. But it's still not. If I comment/uncomment the stopPropogation method...there's literally no difference.
